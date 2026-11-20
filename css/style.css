@@ -1,0 +1,383 @@
+/* ==========================================================
+   NeuralFlow AI — Main Stylesheet
+   ========================================================== */
+
+/* ---------------- Base ---------------- */
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family:
+      "Vazirmatn",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    background-color: #08090d;
+    color: #e3e1e9;
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------- Linear-style Spotlight Cards ---------------- */
+.spotlight-card {
+  position: relative;
+  border-radius: 1rem;
+  background: rgba(18, 19, 24, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease,
+    background 0.35s ease;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(76, 215, 246, 0.18),
+    rgba(128, 131, 255, 0.08),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+.spotlight-card:hover {
+  border-color: rgba(76, 215, 246, 0.28);
+  box-shadow: 0 14px 40px -15px rgba(3, 181, 211, 0.15);
+}
+
+/* ---------------- 3D Telemetry Stage ---------------- */
+.telemetry-3d-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+#telemetry-3d-wrapper {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: rotateX(15deg) scale3d(0.96, 0.96, 0.96);
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ---------------- Scroll reveal ---------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Background Grid ---------------- */
+.hero-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 25%,
+    #000 35%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 25%,
+    #000 35%,
+    transparent 80%
+  );
+  transition: opacity 0.35s ease;
+}
+
+/* ---------------- Token shimmer ---------------- */
+@keyframes pulseToken {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.animate-token-stream {
+  animation: pulseToken 1.8s infinite ease-in-out;
+}
+
+/* ==========================================================
+   LIGHT THEME OVERRIDES
+   ========================================================== */
+html.light,
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html.light .hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+}
+html.light #ambient-glow-1 {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+}
+html.light #ambient-glow-2 {
+  background-color: rgba(14, 165, 233, 0.1) !important;
+}
+html.light #ambient-glow-3 {
+  background-color: rgba(168, 85, 247, 0.09) !important;
+}
+
+html.light #nav-shell {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 25px rgba(15, 23, 42, 0.06);
+}
+html.light #nav-links-bar {
+  background-color: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.06);
+}
+html.light #nav-links-bar a {
+  color: #475569;
+}
+html.light #nav-links-bar a:hover {
+  color: #0f172a;
+  background-color: rgba(15, 23, 42, 0.06);
+}
+html.light .brand-title {
+  color: #0f172a !important;
+}
+
+html.light .spotlight-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: #e2e8f0;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.07);
+}
+html.light .spotlight-card::before {
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(14, 165, 233, 0.14),
+    rgba(99, 102, 241, 0.08),
+    transparent 65%
+  );
+}
+html.light .spotlight-card:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 20px 45px -12px rgba(14, 165, 233, 0.15);
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light .text-white {
+  color: #0f172a !important;
+}
+html.light .text-on-surface-variant {
+  color: #475569 !important;
+}
+html.light .text-outline {
+  color: #64748b !important;
+}
+html.light .text-on-surface {
+  color: #1e293b !important;
+}
+
+html.light .hero-pill {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .hero-pill span {
+  color: #1e293b !important;
+}
+
+html.light #telemetry-header {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light #telemetry-canvas {
+  background-color: #ffffff !important;
+}
+html.light #telemetry-graph-box {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .telemetry-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03) !important;
+}
+html.light #code-stream-view {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border-color: #1e293b !important;
+}
+html.light #sdk-code-block {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border-color: #1e293b !important;
+}
+html.light #cli-container {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+}
+html.light #cli-command {
+  color: #0f172a !important;
+}
+
+html.light .btn-glass {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.light .btn-glass:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+html.light #billing-toggle-container {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light #system-status-badge {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+html.light #newsletter-input {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* ---------------- Theme Toggle Button ---------------- */
+.theme-toggle-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e3e1e9;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(76, 215, 246, 0.4);
+  color: #4cd7f6;
+  box-shadow: 0 0 15px rgba(76, 215, 246, 0.25);
+  transform: scale(1.04);
+}
+html.light .theme-toggle-btn {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+html.light .theme-toggle-btn:hover {
+  background-color: #f8fafc;
+  border-color: #0ea5e9;
+  color: #0284c7;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+}
+.theme-toggle-icon {
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+}
+html.light .dark-icon-state {
+  display: block;
+}
+html.light .light-icon-state {
+  display: none;
+}
+html.dark .dark-icon-state {
+  display: none;
+}
+html.dark .light-icon-state {
+  display: block;
+}
+
+/* ==========================================================
+   Pricing billing toggle (قبلاً inline بود)
+   ========================================================== */
+#billing-toggle-container button {
+  outline: none;
+}
+
+#toggle-annual.is-active {
+  background-color: #4cd7f6;
+  color: #003640;
+}
+#toggle-annual.is-active #discount-badge {
+  background-color: #00252c;
+  color: #4cd7f6;
+  border-color: rgba(76, 215, 246, 0.6);
+}
+#toggle-annual:not(.is-active) {
+  color: #b5b2c7;
+}
+#toggle-annual:not(.is-active):hover {
+  color: #ffffff;
+}
+#toggle-annual:not(.is-active) #discount-badge {
+  background-color: rgba(76, 215, 246, 0.18);
+  color: #4cd7f6;
+  border-color: rgba(76, 215, 246, 0.45);
+}
+
+html.light #toggle-annual.is-active {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+html.light #toggle-annual.is-active #discount-badge {
+  background-color: #034b75;
+  color: #acedff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+html.light #toggle-annual:not(.is-active) {
+  color: #475569;
+}
+html.light #toggle-annual:not(.is-active):hover {
+  color: #0f172a;
+}
+html.light #toggle-annual:not(.is-active) #discount-badge {
+  background-color: rgba(2, 132, 199, 0.14);
+  color: #0369a1;
+  border-color: rgba(2, 132, 199, 0.3);
+  font-weight: 700;
+}

@@ -1,0 +1,1940 @@
+<!doctype html>
+<html class="dark scroll-smooth" dir="rtl" lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>NeuralFlow AI — نسل نوین زیرساخت هوش مصنوعی خودمختار</title>
+
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+    <script src="js/tailwind.js"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#00424e",
+              "primary-fixed": "#e1e0ff",
+              surface: "#08090d",
+              "on-secondary": "#003640",
+              "inverse-on-surface": "#2f3036",
+              "secondary-fixed-dim": "#4cd7f6",
+              "surface-container-highest": "#25262f",
+              "on-surface": "#e3e1e9",
+              "secondary-fixed": "#acedff",
+              "on-error": "#690005",
+              "surface-container-high": "#1e1f26",
+              secondary: "#4cd7f6",
+              "on-tertiary-container": "#340080",
+              "tertiary-container": "#a078ff",
+              "surface-bright": "#38393f",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#e9ddff",
+              "primary-fixed-dim": "#c0c1ff",
+              "outline-variant": "#343542",
+              "error-container": "#93000a",
+              "surface-container": "#15161c",
+              "on-tertiary-fixed-variant": "#5516be",
+              "on-secondary-fixed": "#001f26",
+              "surface-variant": "#20212b",
+              "on-primary": "#1000a9",
+              "surface-container-low": "#101116",
+              tertiary: "#d0bcff",
+              "tertiary-fixed-dim": "#d0bcff",
+              error: "#ffb4ab",
+              "on-surface-variant": "#b5b2c7",
+              "on-tertiary-fixed": "#23005c",
+              "secondary-container": "#03b5d3",
+              "primary-container": "#8083ff",
+              "surface-dim": "#08090d",
+              outline: "#7f7d90",
+              "on-primary-container": "#0d0096",
+              "surface-container-lowest": "#050608",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "inverse-primary": "#494bd6",
+              primary: "#c0c1ff",
+              "on-secondary-fixed-variant": "#004e5c",
+              "inverse-surface": "#e3e1e9",
+              background: "#08090d",
+              "on-primary-fixed": "#07006c",
+              "surface-tint": "#c0c1ff",
+              "on-background": "#e3e1e9",
+              "on-tertiary": "#3c0091",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              margin: "3rem",
+              "space-xs": "0.25rem",
+              "space-lg": "1.5rem",
+              "gutter-mobile": "1rem",
+              "space-md": "1rem",
+              "space-xl": "2.5rem",
+              "space-sm": "0.5rem",
+              gutter: "1.5rem",
+              "margin-mobile": "1.25rem",
+            },
+            fontFamily: {
+              "body-md": ["Vazirmatn", "Inter", "sans-serif"],
+              "headline-lg": ["Plus Jakarta Sans", "Vazirmatn", "sans-serif"],
+              "headline-lg-mobile": [
+                "Plus Jakarta Sans",
+                "Vazirmatn",
+                "sans-serif",
+              ],
+              "body-lg": ["Vazirmatn", "Inter", "sans-serif"],
+              "label-tag": ["Plus Jakarta Sans", "Vazirmatn", "sans-serif"],
+              "display-xl": ["Plus Jakarta Sans", "Vazirmatn", "sans-serif"],
+              "label-code": ["JetBrains Mono", "monospace"],
+              "display-xl-mobile": [
+                "Plus Jakarta Sans",
+                "Vazirmatn",
+                "sans-serif",
+              ],
+              "body-sm": ["Vazirmatn", "Inter", "sans-serif"],
+              "headline-sm": ["Plus Jakarta Sans", "Vazirmatn", "sans-serif"],
+              "headline-md": ["Plus Jakarta Sans", "Vazirmatn", "sans-serif"],
+            },
+            fontSize: {
+              "body-md": [
+                "15px",
+                {
+                  lineHeight: "25px",
+                  letterSpacing: "-0.005em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg": [
+                "44px",
+                {
+                  lineHeight: "52px",
+                  letterSpacing: "-0.025em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "30px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "label-tag": [
+                "11px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-xl": [
+                "60px",
+                {
+                  lineHeight: "70px",
+                  letterSpacing: "-0.035em",
+                  fontWeight: "800",
+                },
+              ],
+              "label-code": [
+                "12px",
+                {
+                  lineHeight: "18px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-xl-mobile": [
+                "38px",
+                {
+                  lineHeight: "46px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "800",
+                },
+              ],
+              "body-sm": [
+                "13px",
+                { lineHeight: "21px", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "headline-sm": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "28px",
+                {
+                  lineHeight: "38px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary selection:text-on-secondary min-h-screen relative overflow-x-hidden"
+  >
+    <svg
+      aria-hidden="true"
+      class="inline-defs-container"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    ></svg>
+
+    <!-- نوار پیشرفت اسکرول -->
+    <div
+      class="fixed top-0 left-0 right-0 h-[2.5px] bg-white/[0.04] z-[100] pointer-events-none"
+    >
+      <div
+        class="h-full bg-gradient-to-r from-secondary via-primary to-tertiary-container w-0 transition-all duration-75 shadow-[0_0_12px_rgba(76,215,246,0.8)]"
+        id="scroll-progress"
+      ></div>
+    </div>
+
+    <!-- نور پس‌زمینه و گرید -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div class="absolute hero-grid inset-0 opacity-80"></div>
+      <div
+        class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[480px] bg-primary-container/15 blur-[150px] rounded-full transition-all duration-500"
+        id="ambient-glow-1"
+      ></div>
+      <div
+        class="absolute top-[35%] -right-40 w-[650px] h-[550px] bg-secondary-container/10 blur-[170px] rounded-full transition-all duration-500"
+        id="ambient-glow-2"
+      ></div>
+      <div
+        class="absolute top-[65%] -left-48 w-[600px] h-[550px] bg-tertiary-container/10 blur-[170px] rounded-full transition-all duration-500"
+        id="ambient-glow-3"
+      ></div>
+    </div>
+
+    <!-- نویگیشن -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300"
+      id="main-nav"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-3.5 pb-2">
+        <div
+          class="h-16 px-5 lg:px-7 rounded-full bg-[#0a0b10]/75 backdrop-blur-xl border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.6)] flex items-center justify-between transition-colors duration-300"
+          id="nav-shell"
+        >
+          <div class="flex items-center gap-3">
+            <a class="flex items-center gap-3 group" href="#">
+              <div class="relative flex items-center justify-center">
+                <div
+                  class="absolute -inset-1 rounded-full bg-secondary/35 blur-sm group-hover:bg-secondary/60 transition-all"
+                ></div>
+                <img
+                  alt="NeuralFlow AI Logo"
+                  class="relative h-8 w-auto object-contain"
+                  src="assets/images/logo.png"
+                />
+              </div>
+              <span
+                class="font-headline-sm text-[19px] font-bold tracking-tight text-white group-hover:text-primary transition-colors brand-title"
+                >NeuralFlow</span
+              >
+            </a>
+            <span
+              class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high/80 border border-secondary/20 text-secondary font-label-tag text-[10px] tracking-wider font-semibold"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"
+              ></span>
+              v3.2 BETA
+            </span>
+          </div>
+
+          <nav
+            class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.04] transition-colors"
+            id="nav-links-bar"
+          >
+            <a
+              class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/[0.06] font-body-sm text-[13.5px] transition-all"
+              href="#telemetry"
+              >کنسول زنده</a
+            >
+            <a
+              class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/[0.06] font-body-sm text-[13.5px] transition-all"
+              href="#features"
+              >معماری</a
+            >
+            <a
+              class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/[0.06] font-body-sm text-[13.5px] transition-all"
+              href="#benchmarks"
+              >بنچ‌مارک‌ها</a
+            >
+            <a
+              class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/[0.06] font-body-sm text-[13.5px] transition-all"
+              href="#pricing"
+              >تعرفه‌ها</a
+            >
+            <a
+              class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/[0.06] font-body-sm text-[13.5px] transition-all"
+              href="#reviews"
+              >نظرات مهندسان</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-2.5">
+            <button
+              aria-label="سوئیچ به تم روشن"
+              class="theme-toggle-btn group"
+              id="theme-toggle"
+              title="سوئیچ به تم روشن (Light Mode)"
+              type="button"
+            >
+              <svg
+                class="theme-toggle-icon light-icon-state w-5 h-5 text-secondary group-hover:rotate-45 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewbox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg
+                class="theme-toggle-icon dark-icon-state w-5 h-5 text-indigo-600 group-hover:-rotate-12 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewbox="0 0 24 24"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </button>
+
+            <a
+              class="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-primary via-primary-fixed to-secondary-fixed-dim text-[#07006c] font-body-sm text-body-sm font-bold shadow-[0_0_24px_-2px_rgba(128,131,255,0.45)] hover:shadow-[0_0_32px_rgba(76,215,246,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all"
+              href="#cta"
+            >
+              <span>ورود به استودیو</span>
+              <span class="material-symbols-outlined text-[16px]">bolt</span>
+            </a>
+            <a
+              class="w-9 h-9 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-on-surface hover:text-white hover:border-white/30 transition-all btn-glass"
+              href="#cta"
+              title="کنسول خط فرمان"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >terminal</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="relative z-10 w-full pt-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 bg-transparent"
+    >
+      <div class="flex flex-col w-full text-on-surface">
+        <!-- ========== 1. HERO ========== -->
+        <section class="relative w-full pt-8 pb-20 md:pb-28">
+          <div
+            class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto"
+          >
+            <div
+              class="reveal-on-scroll inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-high/90 border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.4)] mb-8 hover:border-secondary/40 hover:scale-[1.02] transition-all cursor-pointer group hero-pill"
+            >
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-80"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-secondary"
+                ></span>
+              </span>
+              <span
+                class="font-label-tag text-[12px] text-on-surface font-semibold"
+                >رونمایی از نسخه ۳.۲ — سریع‌ترین ارکستراسیون مدل‌های شناختی
+                جهان</span
+              >
+              <span
+                class="material-symbols-outlined text-[15px] text-secondary group-hover:-translate-x-0.5 transition-transform"
+                >arrow_back</span
+              >
+            </div>
+
+            <h1
+              class="reveal-on-scroll font-headline-lg md:font-display-xl text-3xl sm:text-5xl md:text-[62px] font-extrabold tracking-tight text-white mb-6 leading-[1.25]"
+            >
+              هوش مصنوعی خودمختار؛<br />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-tertiary"
+                >زیرساخت ابری با پاسخ‌دهی بلادرنگ</span
+              >
+            </h1>
+
+            <p
+              class="reveal-on-scroll font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed"
+            >
+              ارکستراسیون خودکار ایجنت‌ها، مسیریابی هوشمند گراف توکن‌ها با زمان
+              تأخیر زیر ۹.۴ میلی‌ثانیه و ایزولاسیون کامل سخت‌افزاری بر پایه
+              کلاسترهای H100 SXM5.
+            </p>
+
+            <div
+              class="reveal-on-scroll flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto mb-16"
+            >
+              <a
+                class="group relative px-8 py-3.5 rounded-full bg-gradient-to-r from-primary-container via-inverse-primary to-primary text-white font-body-md font-bold shadow-[0_0_28px_rgba(128,131,255,0.4)] hover:shadow-[0_0_38px_rgba(76,215,246,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all flex items-center gap-2"
+                href="#cta"
+              >
+                <span>شروع تجربه ابری رایگان</span>
+                <span
+                  class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform"
+                  >bolt</span
+                >
+              </a>
+              <a
+                class="px-7 py-3.5 rounded-full bg-surface-container-high/80 border border-white/10 hover:border-white/20 text-on-surface font-body-md font-medium hover:bg-surface-container-highest transition-all flex items-center gap-2.5 shadow-sm group btn-glass"
+                href="#telemetry"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-secondary group-hover:rotate-45 transition-transform"
+                  >play_circle</span
+                >
+                <span>مشاهده تله‌متری زنده</span>
+              </a>
+            </div>
+
+            <div
+              class="reveal-on-scroll w-full pt-4 flex flex-col items-center gap-4"
+            >
+              <span
+                class="font-label-tag text-[11px] uppercase text-outline tracking-wider font-medium"
+                >مورد اعتماد بیش از ۱۰,۰۰۰ تیم هوش مصنوعی و شرکت‌های Fortune 500
+                در سراسر دنیا</span
+              >
+              <div
+                class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-75 hover:opacity-100 transition-opacity duration-300"
+              >
+                <span
+                  class="font-headline-sm text-[16px] font-bold tracking-wider text-on-surface-variant flex items-center gap-2"
+                  ><span class="w-2 h-2 rounded-sm bg-secondary"></span
+                  >OPNSCALE</span
+                >
+                <span
+                  class="font-headline-sm text-[16px] font-bold tracking-wider text-on-surface-variant flex items-center gap-2"
+                  ><span class="w-2 h-2 rounded-full bg-primary"></span
+                  >VELOCE.AI</span
+                >
+                <span
+                  class="font-headline-sm text-[16px] font-bold tracking-wider text-on-surface-variant flex items-center gap-2"
+                  ><span class="w-2 h-2 rounded-none bg-tertiary"></span
+                  >HYPERION</span
+                >
+                <span
+                  class="font-headline-sm text-[16px] font-bold tracking-wider text-on-surface-variant flex items-center gap-2"
+                  ><span
+                    class="w-2 h-2 rounded-full bg-secondary-container"
+                  ></span
+                  >SYNTHIX</span
+                >
+                <span
+                  class="font-headline-sm text-[16px] font-bold tracking-wider text-on-surface-variant flex items-center gap-2"
+                  ><span class="w-2 h-2 rounded-sm bg-primary-container"></span
+                  >CORTEX</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 2. TELEMETRY MOCKUP ========== -->
+        <section
+          class="relative w-full pb-28 pt-2 telemetry-3d-stage"
+          id="telemetry"
+        >
+          <div
+            class="transition-transform duration-100 ease-out"
+            id="telemetry-3d-wrapper"
+          >
+            <div
+              class="spotlight-card reveal-on-scroll relative max-w-5xl mx-auto rounded-2xl border border-white/10 shadow-[0_25px_80px_-15px_rgba(0,0,0,0.9)] overflow-hidden"
+            >
+              <div
+                class="px-5 py-3.5 bg-surface-container-low border-b border-white/[0.06] flex items-center justify-between"
+                id="telemetry-header"
+              >
+                <div class="flex items-center gap-2.5">
+                  <span
+                    class="w-3 h-3 rounded-full bg-[#ff5f56]/90 border border-[#e0443e]"
+                  ></span>
+                  <span
+                    class="w-3 h-3 rounded-full bg-[#ffbd2e]/90 border border-[#dea123]"
+                  ></span>
+                  <span
+                    class="w-3 h-3 rounded-full bg-[#27c93f]/90 border border-[#1aab29]"
+                  ></span>
+                  <span
+                    class="font-label-code text-[11px] text-outline mr-3 select-none"
+                    dir="ltr"
+                    >neuralflow://session/cluster-eu-west-01/telemetry</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-label-tag text-[11px]"
+                  >
+                    <span
+                      class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"
+                    ></span>
+                    گره زنده فعال
+                  </span>
+                  <button
+                    class="text-on-surface-variant hover:text-secondary transition-colors"
+                    id="refresh-telemetry-btn"
+                    title="تازه سازی گراف"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >sync</span
+                    >
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 bg-[#0c0d12]/90 transition-colors"
+                dir="ltr"
+                id="telemetry-canvas"
+              >
+                <div class="lg:col-span-8 flex flex-col gap-4">
+                  <div class="flex items-center justify-between px-1">
+                    <span
+                      class="font-label-code text-[12px] text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="w-2 h-2 rounded-full bg-secondary animate-pulse"
+                      ></span>
+                      Autonomous DAG Pipeline #4492
+                    </span>
+                    <span
+                      class="font-label-code text-[11px] text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20"
+                    >
+                      Status: Orchestrating (4 Agents)
+                    </span>
+                  </div>
+
+                  <div
+                    class="relative w-full h-72 rounded-xl bg-surface-container-low border border-white/[0.05] p-4 flex items-center justify-center overflow-hidden"
+                    id="telemetry-graph-box"
+                  >
+                    <svg
+                      class="w-full h-full text-outline-variant"
+                      fill="none"
+                      viewbox="0 0 600 240"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <pattern
+                          height="24"
+                          id="grid-pattern"
+                          patternunits="userSpaceOnUse"
+                          width="24"
+                        >
+                          <path
+                            d="M 24 0 L 0 0 0 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-opacity="0.12"
+                            stroke-width="1"
+                          ></path>
+                        </pattern>
+                        <lineargradient
+                          id="neonGlow"
+                          x1="0%"
+                          x2="100%"
+                          y1="0%"
+                          y2="0%"
+                        >
+                          <stop offset="0%" stop-color="#4cd7f6"></stop>
+                          <stop offset="50%" stop-color="#8083ff"></stop>
+                          <stop offset="100%" stop-color="#4cd7f6"></stop>
+                        </lineargradient>
+                        <filter
+                          height="140%"
+                          id="glowFilter"
+                          width="140%"
+                          x="-20%"
+                          y="-20%"
+                        >
+                          <fegaussianblur
+                            result="blur"
+                            stddeviation="3"
+                          ></fegaussianblur>
+                          <fecomposite
+                            in="SourceGraphic"
+                            in2="blur"
+                            operator="over"
+                          ></fecomposite>
+                        </filter>
+                      </defs>
+                      <rect
+                        fill="url(#grid-pattern)"
+                        height="100%"
+                        width="100%"
+                      ></rect>
+                      <path
+                        class="animate-pulse"
+                        d="M 120 120 C 185 120, 195 60, 260 60"
+                        id="path-top-in"
+                        stroke="url(#neonGlow)"
+                        stroke-dasharray="6 4"
+                        stroke-width="2.5"
+                      ></path>
+                      <path
+                        d="M 120 120 C 185 120, 195 180, 260 180"
+                        id="path-bottom-in"
+                        stroke="url(#neonGlow)"
+                        stroke-opacity="0.6"
+                        stroke-width="2"
+                      ></path>
+                      <path
+                        d="M 365 60 C 430 60, 440 120, 480 120"
+                        id="path-top-out"
+                        stroke="url(#neonGlow)"
+                        stroke-width="2.5"
+                      ></path>
+                      <path
+                        d="M 365 180 C 430 180, 440 120, 480 120"
+                        id="path-bottom-out"
+                        stroke="url(#neonGlow)"
+                        stroke-dasharray="6 4"
+                        stroke-opacity="0.7"
+                        stroke-width="2"
+                      ></path>
+                      <circle cx="120" cy="120" fill="#4cd7f6" r="3.5"></circle>
+                      <circle cx="260" cy="60" fill="#8083ff" r="3.5"></circle>
+                      <circle cx="260" cy="180" fill="#a078ff" r="3.5"></circle>
+                      <circle cx="365" cy="60" fill="#8083ff" r="3.5"></circle>
+                      <circle cx="365" cy="180" fill="#a078ff" r="3.5"></circle>
+                      <circle cx="480" cy="120" fill="#4cd7f6" r="3.5"></circle>
+                      <circle fill="#4cd7f6" filter="url(#glowFilter)" r="3.5">
+                        <animatemotion
+                          dur="2.2s"
+                          repeatcount="indefinite"
+                          rotate="auto"
+                        >
+                          <mpath href="#path-top-in"></mpath>
+                        </animatemotion>
+                      </circle>
+                      <circle fill="#4cd7f6" filter="url(#glowFilter)" r="3">
+                        <animatemotion
+                          dur="2.6s"
+                          repeatcount="indefinite"
+                          rotate="auto"
+                        >
+                          <mpath href="#path-bottom-in"></mpath>
+                        </animatemotion>
+                      </circle>
+                      <circle fill="#c0c1ff" filter="url(#glowFilter)" r="3.5">
+                        <animatemotion
+                          dur="1.8s"
+                          repeatcount="indefinite"
+                          rotate="auto"
+                        >
+                          <mpath href="#path-top-out"></mpath>
+                        </animatemotion>
+                      </circle>
+                      <circle fill="#d0bcff" filter="url(#glowFilter)" r="3">
+                        <animatemotion
+                          dur="2.4s"
+                          repeatcount="indefinite"
+                          rotate="auto"
+                        >
+                          <mpath href="#path-bottom-out"></mpath>
+                        </animatemotion>
+                      </circle>
+                      <g
+                        class="cursor-pointer hover:opacity-90"
+                        transform="translate(30, 95)"
+                      >
+                        <rect
+                          fill="#161720"
+                          height="50"
+                          rx="8"
+                          stroke="#4cd7f6"
+                          stroke-width="1.5"
+                          width="90"
+                        ></rect>
+                        <text
+                          fill="#ffffff"
+                          font-family="JetBrains Mono"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="45"
+                          y="24"
+                        >
+                          INPUT INGEST
+                        </text>
+                        <text
+                          fill="#4cd7f6"
+                          font-family="JetBrains Mono"
+                          font-size="8.5"
+                          text-anchor="middle"
+                          x="45"
+                          y="38"
+                        >
+                          18.4k req/s
+                        </text>
+                      </g>
+                      <g transform="translate(260, 35)">
+                        <rect
+                          fill="#161720"
+                          height="50"
+                          rx="8"
+                          stroke="#8083ff"
+                          stroke-width="1.5"
+                          width="105"
+                        ></rect>
+                        <text
+                          fill="#ffffff"
+                          font-family="JetBrains Mono"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="52.5"
+                          y="24"
+                        >
+                          REASONING V3
+                        </text>
+                        <text
+                          fill="#8083ff"
+                          font-family="JetBrains Mono"
+                          font-size="8.5"
+                          text-anchor="middle"
+                          x="52.5"
+                          y="38"
+                        >
+                          qwen-2.5-72b
+                        </text>
+                      </g>
+                      <g transform="translate(260, 155)">
+                        <rect
+                          fill="#161720"
+                          height="50"
+                          rx="8"
+                          stroke="#a078ff"
+                          stroke-width="1.5"
+                          width="105"
+                        ></rect>
+                        <text
+                          fill="#ffffff"
+                          font-family="JetBrains Mono"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="52.5"
+                          y="24"
+                        >
+                          WASM RUNNER
+                        </text>
+                        <text
+                          fill="#a078ff"
+                          font-family="JetBrains Mono"
+                          font-size="8.5"
+                          text-anchor="middle"
+                          x="52.5"
+                          y="38"
+                        >
+                          sandbox 2.1ms
+                        </text>
+                      </g>
+                      <g transform="translate(480, 95)">
+                        <rect
+                          fill="#161720"
+                          height="50"
+                          rx="8"
+                          stroke="#4cd7f6"
+                          stroke-width="1.5"
+                          width="90"
+                        ></rect>
+                        <text
+                          fill="#ffffff"
+                          font-family="JetBrains Mono"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="45"
+                          y="24"
+                        >
+                          STREAM RES
+                        </text>
+                        <text
+                          fill="#4cd7f6"
+                          font-family="JetBrains Mono"
+                          font-size="8.5"
+                          text-anchor="middle"
+                          x="45"
+                          y="38"
+                        >
+                          9.4ms TOTAL
+                        </text>
+                      </g>
+                    </svg>
+                  </div>
+
+                  <div
+                    class="rounded-xl bg-surface-container-low border border-white/[0.05] p-4 font-label-code text-[12px] overflow-x-auto text-left leading-relaxed"
+                    id="code-stream-view"
+                  >
+                    <div class="text-outline mb-1">
+                      // Real-time autonomous token stream output (KV Cached)
+                    </div>
+                    <div>
+                      <span class="text-tertiary">async function</span>
+                      <span class="text-secondary">dispatchNeuralRoute</span
+                      >(prompt: <span class="text-primary-fixed">Payload</span>)
+                      {
+                    </div>
+                    <div class="pl-4">
+                      const agent =
+                      <span class="text-tertiary">await</span>
+                      NeuralEngine.<span class="text-secondary"
+                        >resolveOptimalWeights</span
+                      >({ p99_latency:
+                      <span class="text-secondary-fixed">"&lt;12ms"</span> });
+                    </div>
+                    <div class="pl-4">
+                      return agent.<span class="text-secondary"
+                        >streamTokens</span
+                      >({ max_throughput:
+                      <span class="text-secondary-fixed">true</span>,
+                      zero_retention:
+                      <span class="text-secondary-fixed">true</span> });
+                    </div>
+                    <div>}</div>
+                    <div
+                      class="mt-2 text-secondary flex items-center gap-1.5 animate-token-stream"
+                    >
+                      <span class="w-1.5 h-3 bg-secondary inline-block"></span>
+                      <span class="text-[11px] text-on-surface-variant"
+                        >&gt;&gt; Streaming 1,480 tokens/sec across 4 worker
+                        threads...</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col gap-4">
+                  <div
+                    class="font-label-code text-[11px] text-outline uppercase tracking-wider flex items-center justify-between"
+                  >
+                    <span>TELEMETRY_GAUGES</span>
+                    <span class="text-secondary font-bold">LIVE SYNC</span>
+                  </div>
+
+                  <div
+                    class="telemetry-card p-4 rounded-xl bg-surface-container-low border border-white/[0.05] shadow-sm flex flex-col gap-1"
+                  >
+                    <span
+                      class="font-label-tag text-[10.5px] text-outline uppercase font-semibold"
+                      >Global Latency P99</span
+                    >
+                    <div class="flex items-baseline justify-between">
+                      <span
+                        class="font-headline-md text-2xl font-bold text-secondary"
+                        ><span
+                          class="counter-num"
+                          data-decimals="1"
+                          data-target="9.4"
+                          >0.0</span
+                        >
+                        ms</span
+                      >
+                      <span
+                        class="font-label-code text-[11px] text-secondary flex items-center bg-secondary/10 px-1.5 py-0.5 rounded"
+                        ><span class="material-symbols-outlined text-[13px]"
+                          >arrow_downward</span
+                        >
+                        38%</span
+                      >
+                    </div>
+                    <div
+                      class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2 overflow-hidden"
+                    >
+                      <div
+                        class="bg-secondary h-1.5 rounded-full w-1/4 shadow-[0_0_8px_#4cd7f6]"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="telemetry-card p-4 rounded-xl bg-surface-container-low border border-white/[0.05] shadow-sm flex flex-col gap-1"
+                  >
+                    <span
+                      class="font-label-tag text-[10.5px] text-outline uppercase font-semibold"
+                      >H100 Tensor Allocation</span
+                    >
+                    <div class="flex items-baseline justify-between">
+                      <span
+                        class="font-headline-md text-2xl font-bold text-primary"
+                        ><span
+                          class="counter-num"
+                          data-decimals="1"
+                          data-target="98.2"
+                          >0.0</span
+                        >%</span
+                      >
+                      <span
+                        class="font-label-code text-[11px] text-primary-fixed font-semibold bg-primary/10 px-1.5 py-0.5 rounded"
+                        >OPTIMAL</span
+                      >
+                    </div>
+                    <div
+                      class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2 overflow-hidden"
+                    >
+                      <div
+                        class="bg-primary h-1.5 rounded-full w-[98%] shadow-[0_0_8px_#c0c1ff]"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="telemetry-card p-4 rounded-xl bg-surface-container-low border border-white/[0.05] shadow-sm flex flex-col gap-2.5"
+                  >
+                    <span
+                      class="font-label-tag text-[10.5px] text-outline uppercase font-semibold"
+                      >Active Agent Cluster</span
+                    >
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6]"
+                      ></div>
+                      <span class="font-label-code text-[12px] text-on-surface"
+                        >32 Nodes (128 vCPUs)</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_#c0c1ff]"
+                      ></div>
+                      <span class="font-label-code text-[12px] text-on-surface"
+                        >Zero Cold Starts Active</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_#d0bcff]"
+                      ></div>
+                      <span class="font-label-code text-[12px] text-on-surface"
+                        >Quantum Guard Enabled</span
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full py-3 rounded-xl bg-surface-container-high hover:bg-white/[0.08] border border-white/10 text-white font-body-sm text-[13px] font-semibold transition-all flex items-center justify-center gap-2 group active:scale-[0.98] btn-glass"
+                    id="run-bench-btn"
+                    type="button"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[17px] text-secondary group-hover:rotate-12 transition-transform"
+                      >terminal</span
+                    >
+                    <span id="bench-btn-text"
+                      >اجرای تست بارگذاری (Load Run)</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 3. BENTO FEATURES ========== -->
+        <section class="relative w-full py-20" id="features">
+          <div class="max-w-6xl mx-auto px-2 sm:px-4">
+            <div class="reveal-on-scroll flex flex-col items-start mb-12">
+              <span
+                class="font-label-tag text-[12px] uppercase text-secondary font-bold tracking-wider mb-2 flex items-center gap-1.5"
+                ><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span
+                >زیرساخت بدون رقیب</span
+              >
+              <h2
+                class="font-headline-lg text-2xl sm:text-4xl font-bold text-white leading-tight"
+              >
+                معماری مدرن؛ مهندسی شده برای حد نهایت مقیاس‌پذیری
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+              <div
+                class="spotlight-card reveal-on-scroll md:col-span-8 p-8 relative overflow-hidden group"
+              >
+                <div class="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <span
+                      class="font-label-code text-[11px] text-secondary uppercase font-semibold"
+                      >CORE_ENGINE // 01</span
+                    >
+                    <h3
+                      class="font-headline-md text-xl sm:text-2xl font-bold text-white mt-2 mb-3"
+                    >
+                      موتور ارکستراسیون خودکار چند‌هسته‌ای
+                    </h3>
+                    <p
+                      class="font-body-md text-body-md text-on-surface-variant max-w-xl"
+                    >
+                      تقسیم وظایف محاسباتی پیچیده بین مدل‌های استنتاجی و کدنویسی
+                      در کمتر از ۳ میلی‌ثانیه؛ جریان داده کاملاً موازی بدون
+                      کوچک‌ترین گلوگاه حافظه گرافیکی.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-8 h-36 w-full rounded-xl bg-surface-container-lowest/80 border border-white/[0.04] p-4 flex items-center justify-around telemetry-card"
+                  >
+                    <div class="flex flex-col items-center gap-2">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center text-secondary shadow-sm group-hover:scale-110 transition-transform btn-glass"
+                      >
+                        <span class="material-symbols-outlined text-[24px]"
+                          >hub</span
+                        >
+                      </div>
+                      <span
+                        class="font-label-code text-[11px] text-on-surface-variant"
+                        >Cluster A</span
+                      >
+                    </div>
+                    <div
+                      class="h-0.5 flex-1 mx-2 bg-gradient-to-r from-secondary to-primary relative overflow-hidden"
+                    >
+                      <div
+                        class="absolute inset-0 bg-white/50 animate-pulse"
+                      ></div>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center text-primary shadow-sm group-hover:scale-110 transition-transform btn-glass"
+                      >
+                        <span class="material-symbols-outlined text-[24px]"
+                          >memory</span
+                        >
+                      </div>
+                      <span
+                        class="font-label-code text-[11px] text-on-surface-variant"
+                        >LLM Routing</span
+                      >
+                    </div>
+                    <div
+                      class="h-0.5 flex-1 mx-2 bg-gradient-to-r from-primary to-tertiary relative overflow-hidden"
+                    >
+                      <div
+                        class="absolute inset-0 bg-white/50 animate-pulse"
+                      ></div>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center text-tertiary shadow-sm group-hover:scale-110 transition-transform btn-glass"
+                      >
+                        <span class="material-symbols-outlined text-[24px]"
+                          >bolt</span
+                        >
+                      </div>
+                      <span
+                        class="font-label-code text-[11px] text-on-surface-variant"
+                        >Final Synthesis</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="spotlight-card reveal-on-scroll md:col-span-4 p-8 relative overflow-hidden group"
+              >
+                <div class="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <span
+                      class="font-label-code text-[11px] text-primary uppercase font-semibold"
+                      >LATENCY // 02</span
+                    >
+                    <h3
+                      class="font-headline-sm text-lg sm:text-xl font-bold text-white mt-2 mb-2"
+                    >
+                      تأخیر پاسخگویی نزدیک به صفر
+                    </h3>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      مسیریابی داده‌ها بر مبنای شبکه Anycast اختصاصی جهانی بدون
+                      افت کیفیت و پکت‌لاس.
+                    </p>
+                  </div>
+                  <div class="mt-6 flex flex-col gap-2">
+                    <svg
+                      class="w-full h-24 text-primary"
+                      fill="none"
+                      viewbox="0 0 200 60"
+                    >
+                      <path
+                        d="M 0 30 Q 25 10, 50 30 T 100 30 T 150 15 T 200 30"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                      ></path>
+                      <path
+                        d="M 0 30 Q 25 10, 50 30 T 100 30 T 150 15 T 200 30 L 200 60 L 0 60 Z"
+                        fill="currentColor"
+                        fill-opacity="0.1"
+                      ></path>
+                    </svg>
+                    <div
+                      class="flex justify-between items-center font-label-code text-[11px] text-outline"
+                    >
+                      <span>Edge TTL: 1.2ms</span>
+                      <span class="text-primary font-bold">P99: 9.4ms</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="spotlight-card reveal-on-scroll md:col-span-4 p-8 relative overflow-hidden group"
+              >
+                <div class="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <span
+                      class="font-label-code text-[11px] text-tertiary uppercase font-semibold"
+                      >SECURITY // 03</span
+                    >
+                    <h3
+                      class="font-headline-sm text-lg sm:text-xl font-bold text-white mt-2 mb-2"
+                    >
+                      حریم خصوصی و رمزنگاری کوانتومی
+                    </h3>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      رمزنگاری End-to-End در سطح سخت‌افزار با استاندارد
+                      Zero-Knowledge بدون ذخیره وزن‌ها.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-6 p-4 rounded-xl bg-surface-container-lowest/90 border border-white/[0.05] flex items-center justify-between telemetry-card"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="material-symbols-outlined text-[26px] text-tertiary"
+                        >lock_reset</span
+                      >
+                      <div class="flex flex-col">
+                        <span
+                          class="font-label-tag text-[11px] text-white font-semibold"
+                          >Post-Quantum Vault</span
+                        >
+                        <span class="font-label-code text-[10px] text-outline"
+                          >FIPS 140-3 Validated</span
+                        >
+                      </div>
+                    </div>
+                    <span
+                      class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6]"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="spotlight-card reveal-on-scroll md:col-span-8 p-8 relative overflow-hidden group"
+              >
+                <div class="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="font-label-code text-[11px] text-secondary uppercase font-semibold"
+                        >INTEGRATION // 04</span
+                      >
+                      <span class="font-label-code text-[11px] text-outline"
+                        >v2.4.0 SDKs</span
+                      >
+                    </div>
+                    <h3
+                      class="font-headline-md text-xl sm:text-2xl font-bold text-white mt-2 mb-2"
+                    >
+                      یکپارچه‌سازی آنی با ۱ خط کد
+                    </h3>
+                    <p
+                      class="font-body-md text-body-md text-on-surface-variant max-w-xl"
+                    >
+                      کتابخانه‌های بومی بهینه‌سازی شده با تایپ‌های دقیق برای
+                      محیط‌های محاسباتی سنگین. زبان خود را انتخاب کنید:
+                    </p>
+                  </div>
+                  <div
+                    class="mt-5 flex flex-wrap gap-2"
+                    dir="ltr"
+                    id="sdk-tabs"
+                  >
+                    <button
+                      class="sdk-tab-btn px-4 py-1.5 rounded-lg bg-white/10 text-white font-label-code text-[12px] flex items-center gap-2 transition-all"
+                      data-lang="python"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-secondary"></span
+                      >Python (AsyncIO)
+                    </button>
+                    <button
+                      class="sdk-tab-btn px-4 py-1.5 rounded-lg bg-surface-container-high/60 text-outline hover:text-white font-label-code text-[12px] flex items-center gap-2 transition-all btn-glass"
+                      data-lang="typescript"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-primary"></span
+                      >TypeScript
+                    </button>
+                    <button
+                      class="sdk-tab-btn px-4 py-1.5 rounded-lg bg-surface-container-high/60 text-outline hover:text-white font-label-code text-[12px] flex items-center gap-2 transition-all btn-glass"
+                      data-lang="rust"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-tertiary"></span>Rust
+                      (Tokio)
+                    </button>
+                    <button
+                      class="sdk-tab-btn px-4 py-1.5 rounded-lg bg-surface-container-high/60 text-outline hover:text-white font-label-code text-[12px] flex items-center gap-2 transition-all btn-glass"
+                      data-lang="go"
+                    >
+                      <span
+                        class="w-2 h-2 rounded-full bg-secondary-container"
+                      ></span
+                      >Go (gRPC)
+                    </button>
+                  </div>
+                  <div
+                    class="mt-4 p-3.5 rounded-xl bg-surface-container-lowest/90 border border-white/[0.05] font-label-code text-[12px] text-left overflow-x-auto text-on-surface-variant"
+                    dir="ltr"
+                    id="sdk-code-block"
+                  >
+                    <code
+                      ><span class="text-tertiary">from</span> neuralflow
+                      <span class="text-tertiary">import</span> AsyncEngine,
+                      AgentCluster<br /><span class="text-outline"
+                        ># Instant 3ms coldstart</span
+                      ><br />client = AsyncEngine(api_key=<span
+                        class="text-secondary-fixed"
+                        >"nf_live_sec_***"</span
+                      >)<br />stream =
+                      <span class="text-tertiary">await</span>
+                      client.spawn_agents(nodes=<span class="text-primary-fixed"
+                        >16</span
+                      >, max_latency=<span class="text-primary-fixed">10</span
+                      >)</code
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 4. BENCHMARKS ========== -->
+        <section class="relative w-full py-20" id="benchmarks">
+          <div class="max-w-6xl mx-auto px-2 sm:px-4">
+            <div
+              class="spotlight-card reveal-on-scroll rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl"
+            >
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                  <span
+                    class="font-label-tag text-[12px] text-secondary uppercase font-bold tracking-wider flex items-center gap-1.5"
+                    ><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span
+                    >بنچ‌مارک‌های معتبر مستقل</span
+                  >
+                  <h2
+                    class="font-headline-lg text-2xl sm:text-4xl font-extrabold text-white leading-tight"
+                  >
+                    سرعت خروجی توکن‌ها تا ۴.۸ برابر بالاتر از رقبا
+                  </h2>
+                  <p
+                    class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                  >
+                    با الگوریتم فشرده‌سازی لایه‌ای کش KV و هدایت هوشمند خوشه‌های
+                    شتاب‌یافته، هزینه‌های پردازش مدل به شکل چشم‌گیری کاهش
+                    می‌یابد.
+                  </p>
+                  <div class="pt-2">
+                    <span class="font-label-code text-[11px] text-outline"
+                      >منبع ارزیابی: گزارش تست مقایسه‌ای مستقل Q4 2024</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4"
+                >
+                  <div
+                    class="spotlight-card p-5 sm:p-6 rounded-2xl border border-white/[0.06] flex flex-col items-start justify-between min-w-0 overflow-hidden"
+                  >
+                    <span
+                      class="font-label-tag text-[11px] text-secondary uppercase font-bold tracking-wider"
+                      >سرعت استقرار</span
+                    >
+                    <div
+                      class="my-4 w-full flex items-baseline justify-start gap-1 font-headline-lg"
+                      dir="ltr"
+                    >
+                      <span
+                        class="counter-num text-3xl sm:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap"
+                        data-decimals="1"
+                        data-target="4.8"
+                        >0.0</span
+                      >
+                      <span
+                        class="text-2xl sm:text-3xl font-bold text-secondary"
+                        >×</span
+                      >
+                    </div>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                    >
+                      افزایش سرعت جابجایی وزن‌ها بین گره‌های گراف
+                    </p>
+                  </div>
+                  <div
+                    class="spotlight-card p-5 sm:p-6 rounded-2xl border border-white/[0.06] flex flex-col items-start justify-between min-w-0 overflow-hidden"
+                  >
+                    <span
+                      class="font-label-tag text-[11px] text-primary uppercase font-bold tracking-wider"
+                      >صرفه‌جویی هزینه</span
+                    >
+                    <div
+                      class="my-4 w-full flex items-baseline justify-start gap-1 font-headline-lg"
+                      dir="ltr"
+                    >
+                      <span
+                        class="counter-num text-3xl sm:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap"
+                        data-decimals="0"
+                        data-target="65"
+                        >0</span
+                      >
+                      <span class="text-2xl sm:text-3xl font-bold text-primary"
+                        >%</span
+                      >
+                    </div>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                    >
+                      کاهش مستقیم هزینه اجاره GPUهای ابری سازمانی
+                    </p>
+                  </div>
+                  <div
+                    class="spotlight-card p-5 sm:p-6 rounded-2xl border border-white/[0.06] flex flex-col items-start justify-between min-w-0 overflow-hidden"
+                  >
+                    <span
+                      class="font-label-tag text-[11px] text-tertiary uppercase font-bold tracking-wider"
+                      >پایداری شبکه (SLA)</span
+                    >
+                    <div
+                      class="my-4 w-full flex items-baseline justify-start gap-1 font-headline-lg"
+                      dir="ltr"
+                    >
+                      <span
+                        class="counter-num text-3xl sm:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap"
+                        data-decimals="2"
+                        data-target="99.99"
+                        >0.00</span
+                      >
+                      <span class="text-2xl sm:text-3xl font-bold text-tertiary"
+                        >%</span
+                      >
+                    </div>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                    >
+                      تضمین آپ‌تایم زیرساخت با توافق‌نامه رسمی سطح خدمات
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 5. PRICING ========== -->
+        <section class="relative w-full py-20" id="pricing">
+          <div class="max-w-6xl mx-auto px-2 sm:px-4">
+            <div class="reveal-on-scroll text-center max-w-2xl mx-auto mb-12">
+              <span
+                class="font-label-tag text-[12px] text-secondary uppercase font-bold tracking-wider"
+                >پلن‌های منعطف و مقیاس‌پذیر</span
+              >
+              <h2
+                class="font-headline-lg text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-3"
+              >
+                قیمت‌گذاری شفاف، متناسب با هر مقیاس
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                بدون هزینه‌های پنهان؛ تنها بر اساس توکن‌های پردازش شده و منابع
+                مصرفی واقعی پرداخت کنید.
+              </p>
+              <div
+                class="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-surface-container-high/90 border border-white/10 transition-colors"
+                id="billing-toggle-container"
+              >
+                <button
+                  class="px-5 py-2 rounded-full text-on-surface-variant hover:text-white font-label-tag text-[12px] font-semibold transition-all cursor-pointer"
+                  id="toggle-monthly"
+                  type="button"
+                >
+                  ماهانه
+                </button>
+                <button
+                  class="px-4 py-1.5 rounded-full bg-secondary text-on-secondary font-label-tag text-[12px] font-bold transition-all shadow-sm flex items-center gap-2 cursor-pointer"
+                  id="toggle-annual"
+                  type="button"
+                >
+                  <span>سالانه</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#003640] text-secondary border border-secondary/40 font-bold text-[10.5px] shadow-sm tracking-normal"
+                    id="discount-badge"
+                    >۲۰٪ تخفیف</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+              <div
+                class="spotlight-card reveal-on-scroll p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-headline-sm text-lg font-bold text-white">
+                      توسعه‌دهنده
+                    </h3>
+                    <span
+                      class="font-label-tag text-[11px] text-outline bg-white/[0.05] border border-white/10 px-2.5 py-0.5 rounded-full"
+                      >Starter</span
+                    >
+                  </div>
+                  <div class="flex items-baseline gap-1 mb-6">
+                    <span
+                      class="font-display-xl text-4xl sm:text-5xl font-black text-white price-val"
+                      data-annual="۲۲"
+                      data-monthly="۲۹"
+                      >$۲۲</span
+                    >
+                    <span class="font-body-sm text-body-sm text-outline"
+                      >/ ماهانه</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mb-6"
+                  >
+                    ایده‌آل برای ساخت پروتوتایپ‌ها و پروژه‌های نوپای هوش مصنوعی.
+                  </p>
+                  <ul
+                    class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-8"
+                  >
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>تا ۱۰ میلیون توکن پردازشی ماهانه</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>دسترسی به ۵ ایجنت موازی همزمان</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>پشتیبانی کامیونیتی در دیسکورد</span>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  class="w-full py-3 rounded-xl bg-surface-container-high hover:bg-white/[0.08] border border-white/10 text-white font-body-sm font-semibold transition-all active:scale-[0.98] btn-glass"
+                  type="button"
+                >
+                  انتخاب پلن استارتر
+                </button>
+              </div>
+
+              <div
+                class="spotlight-card reveal-on-scroll p-8 flex flex-col justify-between border-secondary/40 shadow-[0_0_35px_-5px_rgba(76,215,246,0.2)] relative"
+              >
+                <div
+                  class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-secondary via-primary to-tertiary"
+                ></div>
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-headline-sm text-lg font-bold text-white">
+                      حرفه‌ای و تیم‌ها
+                    </h3>
+                    <span
+                      class="font-label-tag text-[11px] text-[#07006c] bg-secondary px-3 py-0.5 rounded-full font-bold shadow-sm"
+                      >محبوب‌ترین</span
+                    >
+                  </div>
+                  <div class="flex items-baseline gap-1 mb-6">
+                    <span
+                      class="font-display-xl text-4xl sm:text-5xl font-black text-white price-val"
+                      data-annual="۷۹"
+                      data-monthly="۹۹"
+                      >$۷۹</span
+                    >
+                    <span class="font-body-sm text-body-sm text-outline"
+                      >/ ماهانه</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mb-6"
+                  >
+                    طراحی شده برای استارتاپ‌ها و محصولات با ترافیک عملیاتی
+                    پیوسته.
+                  </p>
+                  <ul
+                    class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-8"
+                  >
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>تا ۱۰۰ میلیون توکن پرسرعت</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>نامحدود ایجنت مستقل خودکار</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>اولویت در تخصیص حافظه گرافیکی VRAM</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>پشتیبانی فنی اختصاصی ۲۴ ساعته</span>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  class="w-full py-3.5 rounded-xl bg-gradient-to-r from-secondary to-primary text-[#07006c] hover:brightness-110 font-body-sm font-bold transition-all shadow-[0_0_24px_rgba(76,215,246,0.35)] active:scale-[0.98]"
+                  type="button"
+                >
+                  شروع دوره آزمایشی رایگان
+                </button>
+              </div>
+
+              <div
+                class="spotlight-card reveal-on-scroll p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-headline-sm text-lg font-bold text-white">
+                      سازمانی
+                    </h3>
+                    <span
+                      class="font-label-tag text-[11px] text-tertiary bg-white/[0.05] border border-tertiary/20 px-2.5 py-0.5 rounded-full"
+                      >Enterprise</span
+                    >
+                  </div>
+                  <div class="flex items-baseline gap-1 mb-6">
+                    <span
+                      class="font-headline-md text-3xl sm:text-4xl font-black text-white"
+                      >سفارشی</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mb-6"
+                  >
+                    زیرساخت اختصاصی، استقرار محلی و توافق‌نامه‌های امنیتی
+                    پیشرفته.
+                  </p>
+                  <ul
+                    class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-8"
+                  >
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>تخصیص اختصاصی کلاسترهای H100</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>تضمین آپ‌تایم ۹۹.۹۹۹٪ سفارشی</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >check_circle</span
+                      ><span>رمزنگاری اختصاصی در دیتاسنتر محلی</span>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  class="w-full py-3 rounded-xl bg-surface-container-high hover:bg-white/[0.08] border border-white/10 text-white font-body-sm font-semibold transition-all active:scale-[0.98] btn-glass"
+                  type="button"
+                >
+                  تماس با واحد فروش سازمانی
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 6. TESTIMONIALS ========== -->
+        <section class="relative w-full py-20" id="reviews">
+          <div class="max-w-6xl mx-auto px-2 sm:px-4">
+            <div
+              class="reveal-on-scroll flex flex-col items-center text-center mb-12"
+            >
+              <span
+                class="font-label-tag text-[12px] text-secondary uppercase font-bold tracking-wider"
+                >نظرات رهبران فناوری</span
+              >
+              <h2
+                class="font-headline-lg text-2xl sm:text-4xl font-extrabold text-white mt-2"
+              >
+                آنچه برترین مهندسان درباره NeuralFlow می‌گویند
+              </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div
+                class="spotlight-card reveal-on-scroll p-6 flex flex-col justify-between"
+              >
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6"
+                >
+                  «مهاجرت به نئورال‌فلو زمان تأخیر استقرار مدل‌های ما را از ۴۸
+                  میلی‌ثانیه به کمتر از ۱۰ میلی‌ثانیه رساند. هماهنگی ایجنت‌ها
+                  فراتر از استانداردهای فعلی بازار است.»
+                </p>
+                <div class="flex items-center gap-3">
+                  <img
+                    alt="دکتر سارا شمس"
+                    class="w-10 h-10 rounded-full object-cover border border-white/20"
+                    src="assets/images/avatar-1.jpg"
+                  />
+                  <div class="flex flex-col">
+                    <span class="font-body-sm text-body-sm font-bold text-white"
+                      >دکتر سارا شمس</span
+                    >
+                    <span class="font-label-code text-[11px] text-outline"
+                      >مدیر ارشد هوش مصنوعی در Veloce</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="spotlight-card reveal-on-scroll p-6 flex flex-col justify-between"
+              >
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6"
+                >
+                  «کاهش ۶۰ درصدی هزینه‌های مصرف سرورهای گرافیکی ما در ماه اول
+                  شگفت‌انگیز بود. پشتیبانی بدون نقص از زبان Rust باعث شد کل هسته
+                  را یکپارچه کنیم.»
+                </p>
+                <div class="flex items-center gap-3">
+                  <img
+                    alt="آرمان کاظمی"
+                    class="w-10 h-10 rounded-full object-cover border border-white/20"
+                    src="assets/images/avatar-2.jpg"
+                  />
+                  <div class="flex flex-col">
+                    <span class="font-body-sm text-body-sm font-bold text-white"
+                      >آرمان کاظمی</span
+                    >
+                    <span class="font-label-code text-[11px] text-outline"
+                      >معمار زیرساخت کلاود در Synthix</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="spotlight-card reveal-on-scroll p-6 flex flex-col justify-between"
+              >
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6"
+                >
+                  «دقت محاسباتی بالا و ایزولاسیون کامل حریم خصوصی باعث شد
+                  بتوانیم بدون دغدغه داده‌های حساس سازمانی را با اطمینان کامل به
+                  ایجنت‌ها بسپاریم.»
+                </p>
+                <div class="flex items-center gap-3">
+                  <img
+                    alt="نیما رضوانی"
+                    class="w-10 h-10 rounded-full object-cover border border-white/20"
+                    src="assets/images/avatar-3.jpg"
+                  />
+                  <div class="flex flex-col">
+                    <span class="font-body-sm text-body-sm font-bold text-white"
+                      >نیما رضوانی</span
+                    >
+                    <span class="font-label-code text-[11px] text-outline"
+                      >هم‌بنیان‌گذار و CTO در Cortex Labs</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 7. FINAL CTA ========== -->
+        <section class="relative w-full pt-10 pb-24" id="cta">
+          <div class="max-w-5xl mx-auto px-2 sm:px-4">
+            <div
+              class="spotlight-card reveal-on-scroll relative rounded-3xl p-8 md:p-14 text-center overflow-hidden border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.8)]"
+            >
+              <div
+                class="absolute -top-24 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-secondary-container/20 blur-[120px] rounded-full pointer-events-none"
+              ></div>
+              <div
+                class="relative z-10 flex flex-col items-center max-w-2xl mx-auto"
+              >
+                <span
+                  class="font-label-tag text-[12px] text-secondary uppercase font-bold tracking-wider mb-3"
+                  >آماده تحول در سیستم‌های خود هستید؟</span
+                >
+                <h2
+                  class="font-headline-lg text-2xl sm:text-4xl font-extrabold text-white mb-4 leading-tight"
+                >
+                  استقرار سریع‌ترین خطوط لوله هوش مصنوعی را همین امروز آغاز کنید
+                </h2>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant mb-8"
+                >
+                  در کمتر از ۲ دقیقه کلاستر اختصاصی خود را بسازید. نیازی به ورود
+                  کارت اعتباری برای شروع نیست.
+                </p>
+                <div
+                  class="w-full max-w-lg mb-8 rounded-xl bg-surface-container-lowest/90 border border-white/10 p-2 flex items-center justify-between"
+                  dir="ltr"
+                  id="cli-container"
+                >
+                  <div class="flex items-center gap-2 pl-3">
+                    <span
+                      class="text-secondary font-label-code text-sm font-bold"
+                      >$</span
+                    >
+                    <span
+                      class="font-label-code text-sm text-white"
+                      id="cli-command"
+                      >npm install @neuralflow/core</span
+                    >
+                  </div>
+                  <button
+                    class="px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-white/[0.08] text-on-surface-variant hover:text-white font-label-code text-[12px] transition-all flex items-center gap-1.5 active:scale-95 btn-glass"
+                    id="copy-npm-btn"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[16px]"
+                      >content_copy</span
+                    >
+                    <span id="copy-btn-text">Copy</span>
+                  </button>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                  <button
+                    class="px-8 py-3.5 rounded-full bg-gradient-to-r from-primary via-secondary to-primary text-[#07006c] font-body-md font-bold shadow-[0_0_26px_rgba(76,215,246,0.4)] hover:shadow-[0_0_36px_rgba(76,215,246,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all"
+                    type="button"
+                  >
+                    دریافت کلید API رایگان
+                  </button>
+                  <button
+                    class="px-7 py-3.5 rounded-full bg-surface-container-high/80 border border-white/10 hover:border-white/20 text-white font-body-sm font-semibold hover:bg-surface-container-highest transition-all btn-glass"
+                    type="button"
+                  >
+                    مطالعه مستندات کامل SDK
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="relative z-10 w-full bg-[#050608]/90 backdrop-blur-xl border-t border-white/[0.06] mt-12 transition-colors"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+          <div class="md:col-span-5 flex flex-col gap-4">
+            <div class="flex items-center gap-2">
+              <img
+                alt="NeuralFlow AI Logo"
+                class="h-7 w-auto object-contain"
+                src="assets/images/logo.png"
+              />
+              <span
+                class="font-headline-sm text-lg text-white font-bold brand-title"
+                >NeuralFlow AI</span
+              >
+            </div>
+            <p
+              class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed"
+            >
+              معماری ارکستراسیون خودمختار مهندسی‌شده با حداکثر دقت برای مدل‌های
+              پیشرو هوش مصنوعی و تله‌متری بلادرنگ.
+            </p>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] w-fit"
+              id="system-status-badge"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6]"
+              ></span>
+              <span
+                class="font-label-code text-[11px] text-on-surface-variant"
+                dir="ltr"
+                >All systems normal • 99.99% uptime</span
+              >
+            </div>
+          </div>
+          <div class="md:col-span-2 flex flex-col gap-2">
+            <span
+              class="font-label-tag text-[11px] uppercase text-white font-bold tracking-wider mb-2"
+              >پلتفرم</span
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#telemetry"
+              >کنسول تله‌متری</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#features"
+              >معماری سیستم</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#benchmarks"
+              >بنچ‌مارک‌ها</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#pricing"
+              >قیمت‌گذاری</a
+            >
+          </div>
+          <div class="md:col-span-2 flex flex-col gap-2">
+            <span
+              class="font-label-tag text-[11px] uppercase text-white font-bold tracking-wider mb-2"
+              >منابع و اسناد</span
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#"
+              >مستندات API</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#"
+              >کتابخانه‌های SDK</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#"
+              >تغییرات نسخه</a
+            >
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors"
+              href="#"
+              >وضعیت سرورها</a
+            >
+          </div>
+          <div class="md:col-span-3 flex flex-col gap-3">
+            <span
+              class="font-label-tag text-[11px] uppercase text-white font-bold tracking-wider"
+              >عضویت در خبرنامه فنی</span
+            >
+            <p
+              class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+            >
+              گزارش هفتگی معماری مدل‌های شناختی و تکنیک‌های بهینه‌سازی تأخیر
+              بدون هرزنامه.
+            </p>
+            <div class="flex items-center gap-2" dir="ltr">
+              <input
+                class="w-full px-3.5 py-2 rounded-xl bg-surface-container-high border border-white/10 text-white placeholder:text-outline font-label-code text-[12px] focus:outline-none focus:border-secondary"
+                id="newsletter-input"
+                placeholder="engineer@enterprise.ai"
+                type="email"
+              />
+              <button
+                class="px-4 py-2 rounded-xl bg-secondary text-[#003640] hover:brightness-110 font-body-sm text-body-sm font-bold transition-all whitespace-nowrap"
+                type="button"
+              >
+                ثبت
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.05]"
+        >
+          <span class="font-body-sm text-body-sm text-outline"
+            >© ۲۰۲۵ NeuralFlow AI, Inc. تمام حقوق برای پیشگامان زیرساخت محفوظ
+            است.</span
+          >
+          <div
+            class="flex items-center gap-6 font-body-sm text-body-sm text-on-surface-variant"
+          >
+            <a class="hover:text-white transition-colors" href="#"
+              >حریم خصوصی</a
+            >
+            <a class="hover:text-white transition-colors" href="#"
+              >قوانین استفاده</a
+            >
+            <a class="hover:text-white transition-colors" href="#"
+              >پروتکل‌های امنیتی</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
